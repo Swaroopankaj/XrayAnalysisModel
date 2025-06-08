@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forearm X-ray Analysis Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1024px; /* Larger max-width for content */
+        }
+        .header-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4rem 1rem;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .content-section {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card {
+            background-color: #f8fafc; /* Lighter background for feature cards */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+        }
+        .footer-section {
+            background-color: #334155;
+            color: #e2e8f0;
+            padding: 2rem 1rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Section -->
+    <header class="header-section text-center">
+        <h1 class="text-5xl font-extrabold mb-4 animate-fade-in-down">Forearm X-ray Analysis</h1>
+        <p class="text-xl max-w-2xl mx-auto opacity-90 animate-fade-in-up">
+            A Deep Learning Project for Identifying and Classifying Forearm Conditions from X-ray Images
+        </p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="flex-grow py-12 px-4">
+        <div class="container mx-auto content-section">
+
+            <section class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Project Overview</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    This project develops an intelligent system to assist in the analysis of forearm X-ray images. Utilizing advanced deep learning techniques, the model is trained to accurately identify and classify various forearm conditions, distinguishing between normal and abnormal findings. Our approach prioritizes robust performance and efficient processing, making it a valuable tool for healthcare applications.
+                </p>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Key Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <div class="feature-card">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-3">Automated Dataset Organization</h3>
+                        <p class="text-gray-600">
+                            Scripted preprocessing and structuring of raw medical image datasets (e.g., MURA) into standardized training, validation, and test sets.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="text-xl font-semibold text-purple-700 mb-3">Deep Learning Model Training</h3>
+                        <p class="text-gray-600">
+                            Utilizes a pre-trained ResNet50 CNN with transfer learning, configurable parameters, and GPU acceleration for efficient and accurate model training.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Comprehensive Model Evaluation</h3>
+                        <p class="text-gray-600">
+                            Provides detailed performance metrics including accuracy, classification reports, confusion matrices, and ROC curves for thorough model assessment.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="text-xl font-semibold text-red-700 mb-3">Efficient Model Inference</h3>
+                        <p class="text-gray-600">
+                            A dedicated script for quick and robust predictions on new, unseen X-ray images, indicating the classified condition.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">How to Get Started</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    To set up and run this project, please refer to the detailed instructions in the
+                    <a href="https://github.com/YourUsername/YourProjectName/blob/main/README.md" class="text-blue-600 hover:underline font-semibold" target="_blank" rel="noopener noreferrer">README.md</a> file in the project's GitHub repository.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    It covers prerequisites, dataset acquisition (using `AzCopy` for MURA), data organization, model training, and inference.
+                </p>
+                <a href="https://github.com/YourUsername/YourProjectName" class="btn-primary inline-block font-bold">
+                    View Project on GitHub
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer-section text-center py-8 mt-auto">
+        <p class="text-sm">&copy; 2025 Pankaj Raghuvanshi. All rights reserved.</p>
+        <p class="text-sm mt-2">
+            For questions or collaborations, contact: <a href="mailto:psraghuvanshi@hotmail.com" class="text-blue-300 hover:underline">psraghuvanshi@hotmail.com</a>
+        </p>
+        <p class="text-xs mt-2 opacity-80">Project licensed under [Your Chosen License, e.g., MIT License].</p>
+    </footer>
+
+    <script>
+        // Simple animation for fade-in effect on header elements
+        window.addEventListener('load', () => {
+            const fadeInElements = document.querySelectorAll('.animate-fade-in-down, .animate-fade-in-up');
+            fadeInElements.forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+        // Add basic fade-in animation styles via JS (or directly in CSS @keyframes)
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .animate-fade-in-down {
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            }
+            .animate-fade-in-up {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
