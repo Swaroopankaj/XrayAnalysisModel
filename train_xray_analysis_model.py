@@ -98,11 +98,11 @@ except Exception as e:
 # --- Robust Dataset Path Finding ---
 # Define a list of potential paths for the processed dataset
 possible_dataset_paths = [
-    'your_processed_mura_forearm_dataset', # Common folder name
-    os.path.join(os.path.dirname(__file__), 'your_processed_mura_forearm_dataset'), # Relative to script
-    os.path.join(os.path.expanduser("~"), 'Documents', 'your_processed_mura_forearm_dataset'), # Common Documents folder
-    os.path.join(os.path.expanduser("~"), 'Downloads', 'your_processed_mura_forearm_dataset'), # Common Downloads folder
-    os.path.join(os.path.dirname(__file__), '..', 'your_processed_mura_forearm_dataset'), # One level up
+    'Dataset', # Common folder name
+    os.path.join(os.path.dirname(__file__), 'Dataset'), # Relative to script
+    os.path.join(os.path.expanduser("~"), 'Documents', 'Dataset'), # Common Documents folder
+    os.path.join(os.path.expanduser("~"), 'Downloads', 'Dataset'), # Common Downloads folder
+    os.path.join(os.path.dirname(__file__), '..', 'Dataset'), # One level up
     # Add any other common locations where you might store your data
 ]
 
