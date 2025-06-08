@@ -1,0 +1,22 @@
+{
+  "model_parameters": {
+    "IMAGE_SIZE": [
+      224,
+      224
+    ],
+    "BATCH_SIZE": 32,
+    "NUM_EPOCHS": 2,
+    "LEARNING_RATE": 0.0001,
+    "CLASSES": [
+      "normal",
+      "abnormal"
+    ]
+  },
+  "augmentation_parameters": {
+    "ROTATION_RANGE": 15,
+    "WIDTH_SHIFT_RANGE": 0.1,
+    "HEIGHT_SHIFT_RANGE": 0.1,
+    "ZOOM_RANGE": 0.1,
+    "HORIZONTAL_FLIP": true
+  }
+}
