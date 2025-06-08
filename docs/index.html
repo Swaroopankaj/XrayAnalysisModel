@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark"> <!-- Added 'dark' class here for default dark mode -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forearm X-ray Analysis Project</title>
+    <title>X-ray Analysis Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+        /* Light Mode Styles (default if no 'dark' class) */
+        body {
             background-color: #f0f2f5;
             color: #333;
-            line-height: 1.6;
         }
         .container {
-            max-width: 1024px; /* Larger max-width for content */
+            max-width: 1024px;
         }
         .header-section {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -31,11 +35,11 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .feature-card {
-            background-color: #f8fafc; /* Lighter background for feature cards */
+            background-color: #f8fafc;
             border-radius: 0.75rem;
             padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease;
         }
         .feature-card:hover {
             transform: translateY(-5px);
@@ -59,13 +63,101 @@
             border-top-left-radius: 1.5rem;
             border-top-right-radius: 1.5rem;
         }
+
+        /* Dark Mode Styles */
+        html.dark body {
+            background-color: #121212; /* Very dark background for true black feel */
+            color: #e0e0e0; /* Slightly off-white for main text */
+        }
+        html.dark .header-section {
+            background: linear-gradient(135deg, #2a2c3a, #3c2a4d); /* Darker, desaturated gradient */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        html.dark .content-section {
+            background-color: #1e1e1e; /* Dark content card background */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        html.dark .content-section h2,
+        html.dark .content-section p {
+            color: #e0e0e0; /* Ensure main content text is light */
+        }
+        html.dark .feature-card {
+            background-color: #2a2a2a; /* Slightly lighter than main content for feature cards */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        /* Specific feature card heading colors for dark mode */
+        html.dark .feature-card h3.text-blue-700 { /* Automated Dataset Organization */
+            color: #60a5fa; /* blue-400 */
+        }
+        html.dark .feature-card h3.text-purple-700 { /* Deep Learning Model Training */
+            color: #c084fc; /* purple-400 */
+        }
+        html.dark .feature-card h3.text-green-700 { /* Comprehensive Model Evaluation */
+            color: #4ade80; /* green-400 */
+        }
+        html.dark .feature-card h3.text-red-700 { /* Efficient Model Inference */
+            color: #f87171; /* red-400 */
+        }
+        /* Specific feature card paragraph color for dark mode */
+        html.dark .feature-card p.text-gray-600 {
+            color: #d1d5db; /* gray-300 for paragraphs */
+        }
+
+        html.dark .btn-primary {
+            background-color: #7986cb; /* Slightly brighter primary button for dark mode */
+        }
+        html.dark .btn-primary:hover {
+            background-color: #616eab;
+        }
+        html.dark .footer-section {
+            background-color: #0d0d0d; /* Even darker footer */
+            color: #a0a0a0;
+        }
+        html.dark a.text-blue-600 { /* Adjust link color in dark mode */
+            color: #8c9eff;
+        }
+        html.dark a.text-blue-300 { /* Adjust footer link color */
+            color: #a7d9f7;
+        }
+        /* Styles for the toggle button itself, ensuring it's visible in both modes */
+        #themeToggle {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        html.dark #themeToggle {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #e0e0e0;
+        }
+
+        /* For animations */
+        .animate-fade-in-down {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
     <!-- Header Section -->
-    <header class="header-section text-center">
-        <h1 class="text-5xl font-extrabold mb-4 animate-fade-in-down">Forearm X-ray Analysis</h1>
+    <header class="header-section text-center relative">
+        <!-- Dark Mode Toggle Button -->
+        <button id="themeToggle"
+                class="absolute top-4 right-4 p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white focus:outline-none transition-colors duration-300">
+            <!-- Sun icon for light mode, Moon icon for dark mode -->
+            <svg class="w-6 h-6 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.364 6.364l-.707.707M6.343 6.343l-.707-.707m12.728 0l-.707-.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <svg class="w-6 h-6 moon-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+        </button>
+
+        <h1 class="text-5xl font-extrabold mb-4 animate-fade-in-down">X-ray Analysis</h1>
         <p class="text-xl max-w-2xl mx-auto opacity-90 animate-fade-in-up">
             A Deep Learning Project for Identifying and Classifying Forearm Conditions from X-ray Images
         </p>
@@ -135,7 +227,7 @@
         <p class="text-sm mt-2">
             For questions or collaborations, contact: <a href="mailto:psraghuvanshi@hotmail.com" class="text-blue-300 hover:underline">psraghuvanshi@hotmail.com</a>
         </p>
-        <p class="text-xs mt-2 opacity-80">Project licensed under [Your Chosen License, e.g., MIT License].</p>
+        <p class="text-xs mt-2 opacity-80">Project licensed under [MIT License].</p>
     </footer>
 
     <script>
@@ -146,7 +238,31 @@
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
             });
+
+            // Theme toggle logic on load
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.querySelector('.moon-icon').classList.add('hidden');
+                document.querySelector('.sun-icon').classList.remove('hidden');
+            } else { // Default to dark if no theme or 'dark' explicitly stored
+                document.documentElement.classList.add('dark');
+                document.querySelector('.sun-icon').classList.add('hidden');
+                document.querySelector('.moon-icon').classList.remove('hidden');
+            }
         });
+
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            const htmlElement = document.documentElement;
+            const isDarkMode = htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+            // Toggle icons
+            document.querySelector('.sun-icon').classList.toggle('hidden');
+            document.querySelector('.moon-icon').classList.toggle('hidden');
+        });
+
         // Add basic fade-in animation styles via JS (or directly in CSS @keyframes)
         const style = document.createElement('style');
         style.innerHTML = `
